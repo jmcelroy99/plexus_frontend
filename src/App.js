@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from "google-maps-react";
+import User from "./Components/User.js";
+import { render } from "react-dom";
+import Login from "./Components/Login.js";
+import { Route, Switch, Link, NavLink } from "react-router-dom";
+import Home from "./Components/Home.js";
+import BaseMap from "./Components/BaseMap.js";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const mapStyles = {
+  width: "100%",
+  height: "70%",
+};
+
+class App extends React.Component {
+  handleSignup = (e, userInfo) => {
+    e.preventDefault();
+    console.log("signup");
+  };
+
+  handleLogin = (e, userInfo) => {
+    e.preventDefault();
+    console.log("login");
+  };
+
+  renderLoginPage = () => <Login handleLoginOrSignup={this.handleLogin} />;
+
+  renderSignUpPage = () => <Login handleLoginOrSignup={this.handleSignup} />;
+
+  render() {
+    return (
+      <div>
+        <Route path="/home" component={Home} />
+        <Route path="/map" component={BaseMap} />
+        <Route path="/login" render={this.renderLoginPage} />
+        <Route path="/signup" render={this.renderSignUpPage} />
+      </div>
+    );
+  }
 }
 
 export default App;
+// <Map zoom={18} centerAroundCurrentLocation onDblclick={this.mapClicked}>
+// </Map>

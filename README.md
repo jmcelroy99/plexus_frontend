@@ -66,3 +66,35 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+<!-- <div>
+        <Map
+          google={this.props.google}
+          zoom={20}
+          style={mapStyles}
+          initialCenter={{
+            lat: 32.923859,
+            lng: -96.830818,
+          }}
+          onDblclick={this.mapClicked}
+        >
+          <Marker
+            title={"The marker`s title will appear as a tooltip."}
+            name={"SOMA"}
+            position={{ lat: this.state.lat, lng: this.state.lng }}
+            onMouseover={this.onMouseoverMarker}
+            title="Current Location"
+            onClick={this.onMarkerClick}
+          />
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            onClose={this.onClose}
+          >
+            <div>
+              <h4>{this.state.selectedPlace.name}</h4>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div> -->
