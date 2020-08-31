@@ -8,7 +8,7 @@ import {
   InfoWindow,
   Marker,
 } from "google-maps-react";
-// import CurrentLocation from "./CurrentLocation";
+// import CurrentLocatio n from "./CurrentLocation";
 
 class BaseMap extends React.Component {
   state = {
@@ -40,6 +40,7 @@ class BaseMap extends React.Component {
       },
     });
     // POST Fetch to backend of current meetup Coordinates
+    // if meetup already exists, PATCH coordinates to new click
   };
 
   fetchCords = () => {
@@ -55,7 +56,7 @@ class BaseMap extends React.Component {
       }.bind(this)
     );
 
-    setTimeout(this.fetchCords, 5000);
+    // setTimeout(this.fetchCords, 5000);
   };
 
   onMarkerClick = (props, marker, e) =>
